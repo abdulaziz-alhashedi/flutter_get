@@ -19,7 +19,7 @@ class PageThree extends StatelessWidget {
           onPressed: () {
             Get.to(PageOne());
           },
-          child: Text("Go to Page One"),
+          child: Text("Page One"),
         ),
       ),
     );
