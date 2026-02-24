@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-// import 'package:getx/pageone.dart';
+import 'package:getx/pageone.dart';
+import 'package:getx/pagetwo.dart';
+import 'package:getx/pagethree.dart';
 
 
 void main() {
@@ -113,12 +115,36 @@ class _MyHomePageState extends State<MyHomePage> {
               style: Theme.of(context).textTheme.headlineMedium,
             ),
 
-            // ElevatedButton(
-            //   onPressed: () {
-            //     Get.to(PageOne());
-            //   },
-            //   child: Text("Go to Page One"),
-            // ),
+            ElevatedButton(
+              onPressed: () {
+                Get.to(PageOne());
+              },
+              child: Text("Go to Page One"),
+            ),
+            SizedBox(height: 10),
+            ElevatedButton(
+              onPressed: () {
+                Get.off(PageTwo());
+              },
+              child: Text("Go to Page Two"),
+            ),
+
+            SizedBox(height: 10),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                
+              ),
+              onPressed: () {
+                Get.to(PageThree());
+              },
+              child: Text("Go to Page Three"),
+            ),
           ],
         ),
       ),
