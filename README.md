@@ -115,6 +115,8 @@ class OtherPage extends StatelessWidget {
 ### 15. GetX Validators
 
 ### 16. GetX Middleware
+    - privlege system 
+    - initial route 
     - 
 
 ### 17. GetX Storage
