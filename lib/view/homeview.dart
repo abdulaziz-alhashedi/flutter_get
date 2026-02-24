@@ -21,19 +21,37 @@ class Home extends StatelessWidget {
             //     return Text("Clicks: ${controller.count}");
             //   },
             // ),
-            Obx(() => Text("count: ${c.count}")),
             ElevatedButton(
               child: Text("Go to Other"),
               onPressed: () => Get.to(Other()),
             ),
+
             const SizedBox(height: 16),
-            ElevatedButton(child: Icon(Icons.remove), onPressed: c.decrement),
+
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 20),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  foregroundColor: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                ),
+                onPressed: c.increment,
+                child: Icon(Icons.add),
+              ),
+            ),
+            Obx(() => Text("count: ${c.count}")),
+
+            ElevatedButton(onPressed: c.decrement, child: Icon(Icons.remove)),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
         onPressed: c.increment,
+        child: Icon(Icons.add),
       ),
     );
   }
