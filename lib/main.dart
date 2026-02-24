@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        colorScheme: .fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: .fromSeed(seedColor: const Color.fromARGB(255, 58, 183, 173)),
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -124,7 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(height: 10),
             ElevatedButton(
               onPressed: () {
-                Get.off(PageTwo());
+                Get.to(PageTwo());
               },
               child: Text("Go to Page Two"),
             ),
