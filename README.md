@@ -400,10 +400,12 @@ class HomePage extends StatelessWidget {
 - **GET Service** 
 
 
-### 17. GetX Storage
 
 ### 18. GetX Animations
 
+
+
+### Other Advanced APIs -  [https://pub.dev/packages/get#other-advanced-apis](https://pub.dev/packages/get#other-advanced-apis)
 
 ### 18. Get Arguments
 
@@ -456,5 +458,81 @@ class ProfilePage extends StatelessWidget {
       }
     }
     ```
-    
-       
+
+
+
+- get.arguments
+![get.argument.png](getxcours/get.argument.png)
+  - its used to pass data to the next page 
+
+  - GetX Storage
+    - its like the same of the normal storage but with getx 
+    - GetStorage 
+    - GetPrefs 
+    - GetPrefs 
+  - GetX Dialog 
+    - its like the same of the normal dialog but with getx 
+
+  - there job is to check if the snackbar or dialog or bottomsheet is open or not   
+    - Get.isSnackbarOpen
+    - Get.isDialogOpen
+    - Get.isBottomSheetOpen
+  - 
+- GetPlatform 
+  - its job is to check the platform of the device 
+  - GetPlatform.isAndroid 
+  - GetPlatform.isIOS 
+  - GetPlatform.isWeb 
+  - GetPlatform.isDesktop 
+  - GetPlatform.isMobile 
+  - GetPlatform.isTablet
+
+<!-- check the divce Type -->
+  - GetPlatform.isWeb 
+  - GetPlatform.isDesktop 
+  - GetPlatform.isMobile 
+  - GetPlatform.isTablet
+  
+
+  in real life senarios: 
+    - its used when you want to check the platform of the device 
+    - in APIs its used to pass the data from the API to the next page 
+      - some apis return the data in the response and you want to pass the data to the next page 
+      - async functions its used to pass the data from the API to the next page and wait for the response to be ready before moving to the next page and cache the data in the next page to use it later useing the Get.arguments is powerfull its mean you can use the data in the next page without waiting for the API to be ready  
+  
+<!-- Screen w and h  -->
+- Get.size 
+- Get.width 
+- Get.height 
+
+
+
+<!-- isLandscape -->
+- Get.isLandscape
+  - in real life senarios: 
+    - its used when you want to check the orientation of the device 
+    - in APIs its used to pass the data from the API to the next page 
+      - some apis return the data in the response and you want to pass the data to the next page 
+      - async functions its used to pass the data from the API to the next page and wait for the response to be ready before moving to the next page and cache the data in the next page to use it later useing the Get.arguments is powerfull its mean you can use the data in the next page without waiting for the API to be ready  
+
+
+<!-- isPortrait -->
+- Get.isPortrait
+  - in real life senarios: 
+    - its used when you want to check the orientation of the device 
+    - in APIs its used to pass the data from the API to the next page 
+      - some apis return the data in the response and you want to pass the data to the next page 
+      - async functions its used to pass the data from the API to the next page and wait for the response to be ready before moving to the next page and cache the data in the next page to use it later useing the Get.arguments is powerfull its mean you can use the data in the next page without waiting for the API to be ready  
+
+
+<!-- getTheme -->
+- Get.theme 
+- Get.isDarkMode 
+- Get.isLightMode 
+  - in real life senarios: 
+    - its used when you want to check the theme of the app 
+    - in APIs its used to pass the data from the API to the next page 
+      - some apis return the data in the response and you want to pass the data to the next page 
+      - async functions its used to pass the data from the API to the next page and wait for the response to be ready before moving to the next page and cache the data in the next page to use it later useing the Get.arguments is powerfull its mean you can use the data in the next page without waiting for the API to be ready  
+
+<!--  -->
