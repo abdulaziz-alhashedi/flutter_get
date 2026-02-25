@@ -117,8 +117,56 @@ class OtherPage extends StatelessWidget {
 ### 16. GetX Middleware
     - privlege system 
     - initial route 
-    - 
+    - decler shaerd preferenc one time in main to use it every ware >> most have async and await  and alwaeys most use >>> widgetsFlutterBinding.ensureInitialized();
+```
+![shaerdpref-to-use-every-where](/getxcours/shaerdpref-to-use-every-where.png)
+```
+    - to stay save the login data in memory 
 
+    # middleware func
+        - GetMiddleware
+        - how to use middleware in getx with example 
+```dart
+```dart
+class AuthMiddleware extends GetMiddleware {
+  @override
+  RouteSettings? redirect(String? route) {
+    bool isAuthenticated = true; // Replace with your logic
+    return isAuthenticated ? null : const RouteSettings(name: '/login');
+  }
+}
+
+// Example 2: Using Get.find to access an instance
+class SettingMiddleware extends GetMiddleware {
+  @override
+  RouteSettings? redirect(String? route) {
+    if (Get.find<MyService>().sharedPreferences.getString("step") == "1") {
+      return const RouteSettings(name: "/home");
+    }
+    return null;
+  }
+}
+
+// Usage in GetPage
+GetPage(
+  name: '/home',
+  page: () => const HomeView(),
+  middlewares: [
+    AuthMiddleware(priority: 1),
+    SettingMiddleware(priority: 0),
+  ],
+)
+```
+```
+        - priority  by number  if its 1 its most important every time the number is less the priority is high 
+        - 
+
+    # 
+
+
+### 00. GET Services 
+    - its rechabel not the all logic is here its work with controller 
+    - 
 ### 17. GetX Storage
 
 ### 18. GetX Animations
