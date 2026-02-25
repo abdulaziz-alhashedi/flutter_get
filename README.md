@@ -100,7 +100,7 @@ class OtherPage extends StatelessWidget {
   - titleStyle 
   - middleText 
   - middleTextStyle 
-  - content 
+  - content >>>>>
   - contentPadding 
   - actions 
   - actionsAlignment 
@@ -164,10 +164,84 @@ Get.dialog(
   ),
 );
 ```
-
+  -   **cancle** = its mean if you click on the dialog it will close 
+    -     the <b>deffrence</b> between cancle and onCancel is >>>>> cancle = if you click on the dialog it will close 
+    -     onCancel = if you click on the dialog it will close and do something 
+    - use InkWell to make the dialog closable and onCancel to do something  thats why we use InkWell in the dialog  ,, hold on a  sec what is InkWell ?? 
+    - **InkWell** is a widget that allows you to add ink splash effect to a widget when it is tapped 
+    - 
 ### 7. GetX Bottom Sheets
+  - Get.bottomSheet
+    - its like dialog but it is a bottom sheet 
+      - example 
+```dart
+Get.bottomSheet(
+  Container(
+    height: 200,
+    color: Colors.white,
+    child: Center(
+      child: Text('Bottom Sheet'),
+    ),
+  ),
+);
+```
+    - 
+
+  - its show from the bottom of the screen in real life senario: 
+    - user want to change the language 
+    - user want to change the theme 
+    - user want to change the font size 
+    - user want to change the font style 
+    - user want to change the font color 
+    - user want to change the font background color 
+    - user want to do some action 
+      - submit
+        - some money transfer  
+        - 
+      - cancel 
+      -  
+      - 
 
 ### 8. GetX Snackbars
+  - Get.snackbar
+    - title 
+    - message 
+    - duration 
+      - the time for snackbar
+    - icon 
+      - the icon for snackbar
+    - colorText 
+      - the color of the text
+    - backgroundColor 
+      - the background color of the snackbar
+    - 
+    
+  - the snackbar is a widget that allows you to show a message to the user in a non-intrusive way 
+  - is int awosome to use it 
+    - you can use it in every where and in reallife seinaro :
+      - Login : 
+        - if user login success 
+        - if user login fail 
+        - if user login with wrong password 
+        - if user login with wrong email 
+        - if user login with wrong email and password 
+      - Register : 
+        - if user register success 
+        - if user register fail 
+        - if user register with wrong password 
+        - if user register with wrong email 
+        - if user register with wrong email and password 
+      - to ask the user for permission 
+        - location 
+        - camera 
+        - storage 
+        - notification 
+        - 
+      - to show success message 
+      - to show error message 
+      - to show warning message 
+      - to show info message 
+     
 
 ### 9. GetX Navigation
 
@@ -329,3 +403,34 @@ class HomePage extends StatelessWidget {
 ### 17. GetX Storage
 
 ### 18. GetX Animations
+
+
+### 18. Get Arguments
+
+```dart
+// Passing arguments to a route
+Get.toNamed('/profile', arguments: {'name': 'John', 'age': 30});
+
+// Receiving arguments in the destination page
+class ProfilePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    final Map<String, dynamic> args = Get.arguments;
+    return Scaffold(
+      appBar: AppBar(title: Text('Profile')),
+      body: Center(
+        child: Text('Name: ${args['name']}, Age: ${args['age']}'),
+      ),
+    );
+  }
+}
+```
+
+  - its like the same of the normal navigation but with getx 
+    - Get.toNamed('/profile', arguments: {'name': 'John', 'age': 30});
+    - Get.arguments
+    - Get.offNamed('/profile', arguments: {'name': 'John', 'age': 30});
+    
+
+  - the difference between Get.toNamed and Get.offNamed is that Get.toNamed will add the new route to the navigation stack and Get.offNamed will remove the previous route from the navigation stack 
+  - 
