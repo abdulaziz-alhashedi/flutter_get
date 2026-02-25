@@ -95,6 +95,75 @@ class OtherPage extends StatelessWidget {
 ### 5. GetX Theme Management
 
 ### 6. GetX Dialogs
+- GET.dialog
+  - title 
+  - titleStyle 
+  - middleText 
+  - middleTextStyle 
+  - content 
+  - contentPadding 
+  - actions 
+  - actionsAlignment 
+
+  - barrierDismissible 
+  - textCancel 
+  - textConfirm 
+  - onConfirm 
+  - onCancel 
+  - **content** > its make overide the dialog  and accepet widget 
+    - example 
+```dart
+Get.dialog(
+  AlertDialog(
+    title: const Text('AlertDialog Title'),
+    content: const Text('AlertDialog description'),
+    actions: [
+      TextButton(
+        onPressed: () => Get.back(),
+        child: const Text('Cancel'),
+      ),
+      TextButton(
+        onPressed: () => Get.back(),
+        child: const Text('OK'),
+      ),
+    ],
+  ),
+);
+```
+    - content accept widget 
+      - example 
+```dart
+Get.dialog(
+  AlertDialog(
+    title: const Text('AlertDialog Title'),
+    <!-- here we can add any widget -->
+    content:Column(
+      children: [
+        TextField(
+          decoration: InputDecoration(
+            labelText: 'Username',
+          ),
+        ),
+        TextField(
+          decoration: InputDecoration(
+            labelText: 'Password',
+          ),
+        ),
+      ],
+    ),
+    actions: [
+      TextButton(
+        onPressed: () => Get.back(),
+        child: const Text('Cancel'),
+      ),
+      TextButton(
+        onPressed: () => Get.back(),
+        child: const Text('OK'),
+      ),
+    ],
+  ),
+);
+```
 
 ### 7. GetX Bottom Sheets
 
@@ -157,16 +226,106 @@ GetPage(
   ],
 )
 ```
-```
+
         - priority  by number  if its 1 its most important every time the number is less the priority is high 
-        - 
+        - its not logic its work when app is start 
+        - handle notifications , camera prevelges , sound , mice 
 
     # 
 
 
-### 00. GET Services 
+### 00. GET Services and GET View 
     - its rechabel not the all logic is here its work with controller 
-    - 
+    - GET Service its like service in flutter but its more easy to use 
+    - GET View its job is to show the UI and handle the events  replace the stateless widget and stateful widget is this relley???? , mybe 
+### 00. GET Services and GET View
+- **GET Service** – a reusable component that does not contain all the business logic; it works together with a controller.
+- **GET Service** is similar to a typical Flutter service but is easier to use.
+- **GET View** – its purpose is to display the UI and handle events. It can replace the usual `StatelessWidget`/`StatefulWidget` pattern (is this really what you intend?).
+
+
+### 00. GET Translations
+- its build in in getx see this example
+```dart
+import 'package:get/get.dart';
+
+class Messages extends Translations {
+  @override
+  Map<String, Map<String, String>> get keys => {
+    'en': {
+      'hello': 'Hello World',
+      'counter': 'Counter',
+      'increment': 'Increment',
+    },
+    'ar': {
+      'hello': 'مرحبا بالعالم',
+      'counter': 'العداد',
+      'increment': 'زيادة',
+    },
+  };
+}
+```
+
+```dart
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return GetMaterialApp(
+      translations: Messages(), // your translations
+      locale: Get.deviceLocale, // initial locale
+      fallbackLocale: Locale('en', 'US'), // fallback locale
+      home: HomePage(),
+    );
+  }
+}
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('hello'.tr), // GetX translation
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('counter'.tr),
+            ElevatedButton(
+              onPressed: () {
+                Get.updateLocale(Locale('ar', 'SA')); // switch to Arabic
+              },
+              child: Text('switch_to_arabic'.tr),
+            ),
+            ElevatedButton(
+              onPressed: () {
+                Get.updateLocale(Locale('en', 'US')); // switch to English
+              },
+              child: Text('switch_to_english'.tr),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
+- local is in materialApp its mean if you change the local in materialApp it will change the local in all the app 
+- if you want to change the local in specific page you can use Get.updateLocale(Locale('ar', 'SA')); 
+- **local.deviceLocale** its mean the local of the device 
+- local.fallbackLocale its mean the local of the app if the local of the device is not found 
+
+- **GET Service** 
+
+
 ### 17. GetX Storage
 
 ### 18. GetX Animations
