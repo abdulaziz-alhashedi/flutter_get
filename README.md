@@ -433,4 +433,28 @@ class ProfilePage extends StatelessWidget {
     
 
   - the difference between Get.toNamed and Get.offNamed is that Get.toNamed will add the new route to the navigation stack and Get.offNamed will remove the previous route from the navigation stack 
-  - 
+  - in real life senarios: 
+    - its used when you want to pass data to the next page 
+    - in APIs its used to pass the data from the API to the next page 
+      - some apis return the data in the response and you want to pass the data to the next page 
+      - async functions its used to pass the data from the API to the next page and wait for the response to be ready before moving to the next page and cache the data in the next page to use it later useing the Get.arguments is powerfull its mean you can use the data in the next page without waiting for the API to be ready 
+  - this is simple example: 
+    ```dart
+    Get.toNamed('/profile', arguments: {'name': 'John', 'age': 30});
+    ```
+    ```dart
+    class ProfilePage extends StatelessWidget {
+      @override
+      Widget build(BuildContext context) {
+        final Map<String, dynamic> args = Get.arguments;
+        return Scaffold(
+          appBar: AppBar(title: Text('Profile')),
+          body: Center(
+            child: Text('Name: ${args['name']}, Age: ${args['age']}'),
+          ),
+        );
+      }
+    }
+    ```
+    
+       
